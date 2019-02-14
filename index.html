@@ -159,16 +159,16 @@
     }
 
     $('#shussha').click(function () {
-      $pig.animate({left: companyPos + 'px'}, 1500);
+      $pig.stop().animate({left: companyPos + 'px'}, 1500);
       showMessage('出社よ〜(´・ω・｀)');
     });
     $('#kitaku').click(function () {
-      $pig.animate({left: homePos + 'px'}, 1500);
+      $pig.stop().animate({left: homePos + 'px'}, 1500);
       showMessage('帰宅よ〜(´・ω・｀)');
     });
     $('#shukka').click(function () {
       showMessage('出荷よ〜(´・ω・｀)');
-      $pig.hide(500);
+      $pig.stop().hide(500);
       pigStatus = 'shukka';
     });
 
