@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
@@ -74,24 +78,28 @@
             background: #FFF;
             border: 10px solid #000;
             border-radius: 10px;
+            text-align: center;
         }
 
-       table {
-           margin-top: 10%;
-           width: 100%;
-           height: 20%;
-       }
-       tr {
-           height: 20%;
-       }
-       table div {
-           width: 80%;
-           height: 100%;
-           background: #FFF;
-           border: 5px solid #000;
-           border-radius: 5px;
-           vertical-align: center;
-       }
+        table {
+            margin-top: 10%;
+            width: 100%;
+            height: 20%;
+        }
+
+        tr {
+            height: 20%;
+        }
+
+        table div {
+            text-align: center;
+            width: 80%;
+            height: 100%;
+            line-height: 200%;
+            background: #FFF;
+            border: 5px solid #000;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -105,12 +113,64 @@
     <div id="underGround">
         <table>
             <tr>
-                <td><div>出社</div></td>
-                <td><div>帰宅</div></td>
-                <td><div>出荷</div></td>
+                <td>
+                    <div id="shussha">出社</div>
+                </td>
+                <td>
+                    <div id="kitaku">帰宅</div>
+                </td>
+                <td>
+                    <div id="shukka">出荷</div>
+                </td>
             </tr>
         </table>
     </div>
 </div>
 </body>
+<script>
+  $(function () {
+    var $fukidasi = $('#fukidasi');
+    $fukidasi.hide();
+    var $pig = $('#pig');
+    var $company = $('#company');
+    var $home = $('#home');
+    var homePos = $home.position().left;
+    var companyPos = $company.position().left;
+
+    var pigStatus = 'alive';
+
+    var messageTimeout = null;
+
+    function showMessage(msg) {
+      if (messageTimeout) {
+        $fukidasi.hide();
+        clearTimeout(messageTimeout);
+      }
+      if (pigStatus === 'shukka') {
+        msg = '出荷済みよ〜(´・ω・｀)';
+      }
+      $fukidasi.html(msg);
+      $fukidasi.show(500);
+
+      messageTimeout = setTimeout(function () {
+        $fukidasi.hide(500);
+      }, 3000);
+    }
+
+    $('#shussha').click(function () {
+      $pig.animate({left: companyPos + 'px'}, 500);
+      showMessage('出社よ〜(´・ω・｀)');
+    });
+    $('#kitaku').click(function () {
+      $pig.animate({left: homePos + 'px'}, 300);
+      showMessage('帰宅よ〜(´・ω・｀)');
+    });
+    $('#shukka').click(function () {
+      showMessage('出荷よ〜(´・ω・｀)');
+      $pig.hide(500);
+      pigStatus = 'shukka';
+    });
+
+  });
+</script>
 </html>
