@@ -36,6 +36,9 @@
             width: 20%;
             height: 40%;
             background: red;
+            background: url("./home.png") no-repeat;
+            background-size: 100% auto;
+            background-position-y: bottom;
         }
 
         #company {
@@ -44,7 +47,9 @@
             left: 80%;
             width: 20%;
             height: 40%;
-            background: red;
+            background: url("./company.png") no-repeat;
+            background-size: 100% auto;
+            background-position-y: bottom;
         }
 
         #pig {
@@ -53,20 +58,35 @@
             left: 40%;
             width: 20%;
             height: 20%;
-            background: red;
+            background: url("./pig.png") no-repeat;
+            background-size: 100% auto;
+            background-position-y: 30%;
+            z-index: 1;
+        }
+
+        #fukidasi {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            margin: auto;
+            width: 80%;
+            height: 20%;
+            background : #FFF;
+            border: 10px solid #000;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
 <div id="main">
     <div id="upperGround">
-        <div id="home">Home</div>
-        <div id="company">company</div>
-        <div id="pig">pig</div>
+        <div id="fukidasi"></div>
+        <div id="home"></div>
+        <div id="company"></div>
+        <div id="pig"></div>
     </div>
     <div id="underGround">
     </div>
-</div>
 </div>
 </body>
 </html>
