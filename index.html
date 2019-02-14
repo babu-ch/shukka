@@ -3,8 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style></style>
+    <style>
+        body, html {
+            background: #000;
+            margin: 0;
+            height: 100%;
+        }
+
+        #main {
+            margin: 0 auto;
+            max-width: 600px;
+            width: 100%;
+            background: #FFF;
+            height: 100%;
+        }
+
+        #upperGround {
+            position: relative;
+            height: 50%;
+            background: #1f6fb2;
+        }
+
+        #underGround {
+            border-top: 10px solid #000;
+            height: 50%;
+            background: #f6993f;
+        }
+
+        #home {
+            position: absolute;
+            top: 60%;
+            width: 20%;
+            height: 40%;
+            background: red;
+        }
+
+        #company {
+            position: absolute;
+            top: 60%;
+            left: 80%;
+            width: 20%;
+            height: 40%;
+            background: red;
+        }
+
+        #pig {
+            position: absolute;
+            top: 80%;
+            left: 40%;
+            width: 20%;
+            height: 20%;
+            background: red;
+        }
+    </style>
 </head>
 <body>
+<div id="main">
+    <div id="upperGround">
+        <div id="home">Home</div>
+        <div id="company">company</div>
+        <div id="pig">pig</div>
+    </div>
+    <div id="underGround">
+    </div>
+</div>
+</div>
 </body>
 </html>
